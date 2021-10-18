@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, connect } from 'react-redux';
-import { login } from '../store/actions/api';
+import { useDispatch, connect } from "react-redux";
+import { login } from "../store/actions/api";
 
 function Login() {
   const dispatch = useDispatch();
@@ -9,12 +9,13 @@ function Login() {
   let [password, setPassword] = useState("");
 
   function handleLogin() {
-    console.log('login clicked', {
-      username, password
+    console.log("login clicked", {
+      username,
+      password,
     });
     if (username.length > 0 && password.length > 0) {
-      console.log('input is valid');
-      dispatch(login(username, password))
+      console.log("input is valid");
+      dispatch(login(username, password));
     }
   }
 
@@ -57,15 +58,8 @@ function Login() {
           </button>
         </div>
       </div>
-      <br />
-      <small>
-        <a href=" https://github.com/Fidelia/SheCodes" target="_blank">
-          Open-source code
-        </a>
-        {' by Fidelia Okandze'}
-      </small>
     </div>
   );
 }
 
-export default connect(state => state.api)(Login);
+export default connect((state) => state.api)(Login);

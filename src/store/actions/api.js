@@ -4,6 +4,7 @@ import { setError, setLoading } from "./status";
 
 export const LOG_IN_SUCCESS = "LOGIN_SUCCESS";
 export const LOG_IN_FAIL = "LOG_IN_FAIL";
+export const SET_USER_POLICY_DETAILS = "SET_USER_POLICY_DETAILS";
 
 const API_URL = "https://api.bybits.co.uk";
 
@@ -50,6 +51,7 @@ export const getPolicyDetails = (token) => async (dispatch) => {
       },
     });
     console.log({ policy: response.data });
+    dispatch({ type: SET_USER_POLICY_DETAILS, payload: response.data });
   } catch (err) {
     console.log(err);
   } finally {
